@@ -49,7 +49,7 @@ sed -i "s/ld-options:/ld-options:\ -L\/app\/usr\/lib/" base.package.conf
 ghc-pkg update base.package.conf
 
 # cabal-install
-curl --silent http://hackage.haskell.org/packages/archive/cabal-install/1.18.0.3/cabal-install-1.18.0.3.tar.gz|tar xz
+curl --silent http://hackage.haskell.org/package/cabal-install-1.18.0.3/cabal-install-1.18.0.3.tar.gz |tar xz
 cd cabal-install-1.18.0.3/
 sh bootstrap.sh
 cd ..
