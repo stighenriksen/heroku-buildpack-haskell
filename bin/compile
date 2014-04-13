@@ -12,9 +12,9 @@ FIXED_HOME=/app
 mkdir -p $CACHE_DIR
 
 if [ ! -e $CACHE_DIR/ghc ]; then
-  GHC_URL="http://www.haskell.org/ghc/dist/7.8.2/ghc-7.8.2-x86_64-unknown-linux-deb7.tar.bz2"
+  GHC_URL="http://www.haskell.org/ghc/dist/7.8.2/ghc-7.8.2-x86_64-unknown-linux-deb7.tar.xz"
   echo "-----> Downloading GHC"
-  curl -# --max-time 120 -L "$GHC_URL" | tar xz -C $CACHE_DIR
+  curl -# --max-time 120 -L "$GHC_URL" | tar xf -C $CACHE_DIR
 fi
 
 # Restore GHC registry if available
@@ -33,7 +33,7 @@ if [ -e $CACHE_DIR/cabal ]; then
 elif [ ! -e $FIXED_HOME/.cabal ]; then
   CABAL_URL="http://hackage.haskell.org/package/cabal-install-1.18.0.3/cabal-install-1.18.0.3.tar.gz"
   echo "-----> Downloading Cabal"
-  curl -# --max-time 120 -L "$CABAL_URL" | tar xz -C $FIXED_HOME
+  curl -# --max-time 120 -L "$CABAL_URL" | tar xf -C $FIXED_HOME
 fi
 
 # Set LD_LIBRARAY_PATH and link essential libraries
